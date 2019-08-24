@@ -1,0 +1,19 @@
+1. Does your network reach 0 training error ?
+Ans. Yes
+
+2. Can you make your program into stochastic gradient descent ?
+Ans. Yes we can implement stochastic gradient descent
+which will use subsets of the data to find the global minimum which will
+be much faster than the GD when used on a large dataset.
+
+3. Does SGD give lower test error than full gradient descent ?
+Ans. The error function for SGD is not minimized as compared to that of GD,
+Hence, the algorithm might converge faster and it gives an optimal value for the
+parameter and will keep oscillating there. Hence SGD might give greater test error as compared
+to GD.
+
+4. What happens if change the activation to sign? Will the same algorithm
+   work ? If not what will you change to make the algorithm converge to a
+   local minimum?
+Ans. No, it will not work. The Sign function has values that are either -1 or 1 and is not
+a differentiable function. So we should use an activation function like sigmoid, Relu, Tanh that is differentiable which will converge to a local minimum.

@@ -1,0 +1,6 @@
+1. Test your program on breast cancer and ionosphere given on the website. Is the mini-batch faster or the original one? How about accuracy?
+Ans : The mini-batch is faster than the original one. However, the accuracy for mini-batch is not as good as the original/Normal Gradient Decent Algorithm.
+
+2. Is the search faster or more accurate if you keep track of the best objective
+in the inner loop?
+Ans: Yes, the predictions would be more accurate if we keep track of the best objective. At the moment we are using the last objective at the last iteration  of the loop and it may or may not be the best objective as the datapoint selected can at the last iteration can be biased to a paticular class which could give us a wrong prediction. 

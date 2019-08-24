@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#$ -N dotPro
+#$ -S /bin/sh
+#$ -cwd
+#$ -j y
+#$ -m be
+
+# Request a gpu
+#$ -q datasci
+
+/bin/echo Running on host:`hostname`
+/bin/echo In directory:`pwd`
+/bin/echo Staring on:`date`
+
+. /opt/modules/init/bash
+module load cuda
+
+nvcc -O3 -lm -o dotPro dot_prod.cu
+./dotPro 8000 29623 0 traindata w_vector.dms 64 > dot_Product_output

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+#$ -N dotProd
+#$ -S /bin/sh
+#$ -cwd
+#$ -j y
+#$ -m be
+
+# Request a gpu
+#$ -q datasci
+
+/bin/echo Running on host:`hostname`
+/bin/echo In directory:`pwd`
+/bin/echo Staring on:`date`
+
+# Load openmp module
+. /opt/modules/init/bash
+module load intel/compiler/2017.2.174
+
+icc -O3 -Wall -o dot_prod dot_prod.c -lm -fopenmp
+./dot_prod 8000 29623 2 traindata w_vector.dms > dot_Product_output
+#./dot_prod 4 4 2 testFile.txt wVec.txt > dot_Product_output
